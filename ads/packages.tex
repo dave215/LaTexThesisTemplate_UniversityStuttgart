@@ -1,0 +1,140 @@
+% !TeX root = ../documentation.tex
+
+% University of Stuttgart thesis document template
+% (c) 2023 dave215 (MIT License)
+%
+% This document imports all needed packages and sets all settings
+
+% Packages
+\usepackage[ngerman] {babel}
+\usepackage{color}
+\usepackage{enumerate} % Enumerating a list of bullet points
+\usepackage[nottoc] {tocbibind} % Get list of figures, ... in the main table of content, but not the main TOC itself
+
+\usepackage[margin=25mm, headheight=28pt] {geometry}
+\usepackage{fancyhdr} % Header and Footer Settings
+\usepackage{titlesec}
+
+% Bibliography
+\usepackage[backend=biber, natbib=true] {biblatex} % Imports biblatex package
+\usepackage{csquotes}
+\addbibresource{bib/refs.bib} % Import the bibliography file
+
+% Glossary
+\usepackage[nopostdot, toc] {glossaries}
+\makeglossaries
+\loadglsentries{ads/nomenclature}
+
+% Acronyms
+\usepackage[printonlyused] {acronym}
+
+% Font arts
+\usepackage[T1] {fontenc} % To switch to the T1 encoding
+\usepackage{uarial} % Font art: Arial
+\renewcommand{\familydefault} {\sfdefault}
+
+% Images
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{wrapfig}
+% TikZ and TikZ-libraries ("Drawing"-program)
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{automata, positioning, arrows}
+
+% Multi-line tables
+\usepackage{makecell}
+\renewcommand{\cellalign} {cl} % Default cell alignment: Vertical centered and horizontally left-handed
+
+% Source code
+\usepackage{listings}
+\lstset{ % https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings
+  language = bash,            % the language of the code
+  basicstyle = \ttfamily,
+  breakatwhitespace = false,  % sets if automatic breaks should only happen at whitespace
+  breaklines = true,          % sets automatic line breaking
+  captionpos=b,               % sets the caption-position to bottom
+  escapeinside = {\%(*} {*)}, % if you want to add LaTeX within your code
+  frame = single,             % adds a frame around the code
+  commentstyle = \color{lightGreen}, % comment style
+  numberstyle = \scriptsize,
+  xleftmargin = 16pt,         % Versetzt Listing, dass Zahlen nicht im Rand sind
+  numbers = left,
+  stepnumber = 1,
+  numbersep = 8pt,
+  % stringstyle = \color{darkRed},
+  showstringspaces = false,
+}
+
+% Line spacing
+\usepackage{setspace}
+
+% Line and paragraph spacing (Absatzformatierung)
+\setlength{\parindent} {0em}
+\setlength{\parskip} {1em}
+
+% Chapter formatting
+\titleformat{\chapter} {\bfseries\LARGE} {\thechapter} {20pt} {\bfseries\LARGE}
+
+% Spacing around section headings
+\titlespacing\chapter {0pt} {-24pt plus 4pt minus 2pt} {20pt plus 2pt minus 2pt}
+\titlespacing\section {0pt} {24pt plus 4pt minus 2pt} {20pt plus 2pt minus 2pt}
+\titlespacing\subsection {0pt} {12pt plus 4pt minus 2pt} {8pt plus 2pt minus 2pt}
+\titlespacing\subsubsection {0pt} {8pt plus 4pt minus 2pt} {8pt plus 2pt minus 2pt}
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph} {4} {\z@}%
+  {8pt plus 4pt minus 2pt}%
+  {8pt plus 2pt minus 2pt}%
+  {\normalfont\normalsize\bfseries}}
+\makeatother
+
+% Add numbers to subsubsection
+\setcounter{secnumdepth} {3}
+% Include subsubsection in table of content
+%\setcounter{tocdepth} {3}
+
+% Confidential thesis: Variable declaration
+\newtoggle{confidentialThesis}
+\togglefalse{confidentialThesis}
+
+% Document properties
+\input{ads/settings}  % Import thesis settings
+
+% Header and footer settings
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{}
+\chead{\thesisTitle \ -- \thesisSubtitle}
+\rhead{}
+\lfoot{\thesisDate}
+\cfoot{\thesisAuthor}
+\rfoot{Seite \thepage \ von \pageref*{LastPage}}
+\renewcommand{\headrulewidth} {1pt}
+\renewcommand{\footrulewidth} {1pt}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \lhead{}
+  \chead{\thesisTitle \ -- \thesisSubtitle}
+  \rhead{}
+  \lfoot{\thesisDate}
+  \cfoot{\thesisAuthor}
+  \rfoot{Seite \thepage \ von \pageref*{LastPage}}
+  \renewcommand{\headrulewidth} {1pt}
+  \renewcommand{\footrulewidth} {1pt}
+}
+
+% Thesis data for file properties
+\title{\thesisTitle}
+\date{\thesisDate}
+\author{\thesisAuthor}
+\usepackage[
+  pdfauthor={\thesisAuthor},
+  pdftitle={\thesisTitle \ - \thesisSubtitle},
+  hidelinks,
+  pdfdisplaydoctitle=true,
+  bookmarksnumbered=true,
+] {hyperref}
+
+% ToDo Marker
+\newcommand{\todo} [1] {\textit{\color{red} TODO: #1}}

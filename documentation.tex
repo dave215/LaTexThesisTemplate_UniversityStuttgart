@@ -1,0 +1,134 @@
+% !TeX root = documentation.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = de_DE
+
+% University of Stuttgart thesis document template
+% (c) 2023 dave215 (MIT License)
+%
+% This document covers the main content of the corresponding document
+
+\documentclass[ngerman, 12pt, a4paper] {report}
+
+% Importing main document structure with all needed settings and packages
+\input{ads/packages}
+
+% Color definitions
+\definecolor{darkGray} {RGB} {52, 55, 62}
+\definecolor{white} {RGB} {255, 255, 255}
+\definecolor{lightBlue} {RGB} {27, 187, 233}
+\definecolor{darkBlue} {RGB} {0, 81, 158}
+\definecolor{black} {RGB} {0, 0, 0}
+\definecolor{blue} {RGB} {0, 0, 255}
+\definecolor{lightGreen} {rgb} {0.1, 0.7, 0.1}
+\definecolor{darkRed} {rgb} {0.558215, 0.000000, 0.135316}
+
+\begin{document}
+
+% Title page
+\pagenumbering{roman} % Start Roman page numbering (small letters)
+\input{ads/titlepage}
+
+\pagenumbering{Roman} % Start Roman page numbering (big letters)
+\rfoot{Seite \thepage \ von~\pageref*{LastPageRoman}}
+\fancypagestyle{plain}{%
+  \rfoot{Seite \thepage \ von~\pageref*{LastPageRoman}}
+}
+
+\iftoggle{confidentialThesis} {
+  \input{ads/confidential}
+}
+
+% Table of contents
+\begingroup
+  \parskip=4pt
+  \tableofcontents % Table of contents
+\endgroup
+
+\setstretch{1.15} % 1.15-facher Zeilenabstand
+
+\newpage
+
+% Inserting list of figures (Abbildungsverzeichnis)
+\phantomsection % Needed for correct link from TOC
+\begingroup
+  \parskip=3pt
+  \listoffigures
+\endgroup
+\newpage
+
+% Inserting list of tables (Tabellenverzeichnis)
+\phantomsection % Needed for correct link from TOC
+\begingroup
+  \parskip=3pt
+  \listoftables
+\endgroup
+\newpage
+
+% Inserting list of listings (Listing-Verzeichnis)
+\phantomsection % Needed for correct link from TOC
+\begingroup
+  \parskip=3pt
+  \addcontentsline{toc} {chapter} {Listings}
+  \lstlistoflistings
+\endgroup
+\newpage
+
+% Inserting abbreviations (Abkürzungsverzeichnis)
+%\printglossary[type=\acronymtype, style=list, nonumberlist, title={Abkürzungsverzeichnis}]
+\input{ads/abbreviations}
+\newpage
+
+% Inserting glossary (Glossar)
+\printglossary[type=main, style=altlist, nonumberlist, title={Glossar}]
+\newpage
+
+% Zusammenfassung and abstract
+\input{sections/00_abstract}
+\label{LastPageRoman}
+
+\newpage % Start new page for content
+\pagenumbering{arabic} % Start "normal" Arabic page numbering for content
+\rfoot{Seite \thepage \ von~\pageref*{LastPage}}
+\fancypagestyle{plain}{%
+  \rfoot{Seite \thepage \ von~\pageref*{LastPage}}
+}
+
+% Chapter 1: Introduction
+\input{sections/01_introduction}
+\newpage
+
+% Chapter 2: Basics
+\input{sections/02_basics}
+\newpage
+
+% Chapter 3: Concept
+\input{sections/03_concept}
+\newpage
+
+% Chapter 4: Prototype
+\input{sections/04_prototype}
+\newpage
+
+% Chapter 5: Evaluation
+\input{sections/05_evaluation}
+\newpage
+
+% Last chapter: Conclusion
+\input{sections/06_conclusion}
+\label{LastPage}
+
+% End of content and start of appendix, change to alphabetical page numbering
+\newpage % New page for appendix / literature references
+\pagenumbering{Alph} % Start alphabetical page numbering for appendix
+\rfoot{Seite \thepage \ von~\pageref*{LastPageAlph}}
+\fancypagestyle{plain}{%
+  \rfoot{Seite \thepage \ von~\pageref*{LastPageAlph}}
+}
+\input{ads/appendix}
+\newpage
+
+% Erklärung
+\input{ads/declaration}
+
+\label{LastPageAlph}
+\end{document}

@@ -1,0 +1,47 @@
+% !TeX root = ../documentation.tex
+
+% University of Stuttgart thesis document template
+% (c) 2023 dave215 (MIT License)
+%
+% This document covers the title page
+
+\begin{titlepage}
+
+% Uni Stuttgart logo with text on upper left side
+\begin{tikzpicture} [remember picture, overlay]
+  \node [shift={(10mm, -13mm)}, below right] at (current page.north west) { \includegraphics[width=90mm] {LogoFull} };
+\end{tikzpicture}
+
+\iftoggle{confidentialThesis} {
+  \begin{tikzpicture} [remember picture, overlay, color=darkBlue]
+    \node [shift={(50mm, -55mm)}, draw=lightBlue, line width=4pt, rectangle, rounded corners=2pt, text width=66mm, font=\bfseries\Huge, align=left, inner sep=3mm] at (current page.north west) {Diese Arbeit ist vertraulich.};
+  \end{tikzpicture}
+}
+
+% Thesis data in light blue circle
+\begin{tikzpicture} [remember picture, overlay]
+  \node [shift={(40mm, 75mm)}, circle, fill=lightBlue, minimum height=280mm] at (current page.south west) {  };
+  \node [shift={(20mm, -150mm)}, below right, text width=130mm, color=white, font=\large, align=flush center] at (current page.north west) { \thesisSubtitle };
+  \node [shift={(20mm, -165mm)}, below right, text width=130mm, color=white, align=flush center] at (current page.north west) { An der Universität Stuttgart vorgelegt von };
+  \node [shift={(20mm, -170mm)}, below right, text width=130mm, color=white, font=\bfseries\large, align=flush center] at (current page.north west) { \thesisAuthor };
+  \node [shift={(20mm, -185mm)}, below right, text width=130mm, color=white, align=flush center] at (current page.north west) { \thesisStudyProgram };
+  \node [shift={(20mm, -260mm)}, below right, text width=130mm, color=white, align=flush center] at (current page.north west) { \thesisDateStop };
+  \node [shift={(25mm, -215mm)}, below right, text width=130mm, color=white, font=\large, align=left] at (current page.north west) { Prüfer: };
+  \node [shift={(70mm, -215mm)}, below right, text width=130mm, color=white, font=\large, align=left] at (current page.north west) { \examinatorName };
+  \node [shift={(25mm, -225mm)}, below right, text width=130mm, color=white, font=\large, align=left] at (current page.north west) { Betreuer: };
+  \node [shift={(70mm, -225mm)}, below right, text width=130mm, color=white, font=\large, align=left] at (current page.north west) { \supervisorName };
+\end{tikzpicture}
+
+% Title in dark blue circle
+\setstretch{1.15}
+\begin{tikzpicture} [remember picture, overlay]
+  \node [shift={(-95mm, -40mm)}, below right, circle, fill=darkBlue, minimum height=130mm] at (current page.north east) {  };
+  \node [shift={(-110mm, -20mm)}, below right, color=white, minimum height=130mm, text width=105mm, font=\bfseries\Huge, align=flush center] at (current page.north east) { \thesisTitle };
+\end{tikzpicture}
+
+% Uni logo on lower right side
+\begin{tikzpicture} [remember picture, overlay]
+  \node [shift={(174mm, -260mm)}, below right] at (current page.north west) { \includegraphics[width=25mm] {UniLogo} };
+\end{tikzpicture}
+
+\end{titlepage}

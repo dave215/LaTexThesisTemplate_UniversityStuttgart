@@ -1,0 +1,55 @@
+% !TeX root = ../documentation.tex
+
+% University of Stuttgart thesis document template
+% (c) 2023 dave215 (MIT License)
+%
+% This document covers the confidential statement (Vertraulichkeitserklärung)
+
+\section*{Vertraulich}
+
+\begin{enumerate}
+  \small
+  \item Diese Arbeit ist eine Prüfungsarbeit, die vertrauliche Informationen Dritter (Unternehmen) enthält und der Geheimhaltung (Verschwiegenheitspflicht) unterliegt. Diese Arbeit darf nur Personen zugänglich gemacht werden, wenn und soweit die ordnungsgemäße Durchführung des Prüfungsverfahrens dies erfordert. Dies umfasst sämtliche Schritte des Prüfungsverfahrens, einschließlich des Rechtswegs gegen Prüfungsentscheidungen und einer eventuellen Plagiatsprüfung; maßgeblich sind die Bestimmungen der jeweiligen Studien- und Prüfungsordnung und die gesetzlichen Bestimmungen.
+  \item Alle Mitarbeiter und Mitarbeiterinnen der Universität Stuttgart, denen diese Arbeit zugänglich gemacht wird, haben über den Inhalt der Arbeit Stillschweigen zu wahren. Diese Verschwiegenheitspflicht gilt gegenüber sämtlichen Personen, die mit dieser Arbeit nicht betraut sind. Hiervon unberührt bleiben die dienst- bzw. arbeitsrechtliche Verschwiegenheitspflicht der Beschäftigten der Universität Stuttgart nach den einschlägigen Bestimmungen (z.B. § 37 Beamtenstatusgesetz - BeamtStG, § 57 Landesbeamtengesetz - LBG, § 3 Abs. 2 TV-L) und gesetzliche Verschwiegenheits-pflichten (§ 3b Landesverwaltungsverfahrensgesetz - Geheimhaltung von Betriebs- und Geschäftsgeheimnissen, § 17 UWG - Verrat von Geschäfts- und Betriebsgeheimnissen, § 203 StGB - Verletzung von Privatgeheimnissen, § 353b StGB - Verletzung des Dienstgeheimnisses und einer besonderen Geheimhaltungspflicht, u.a.).
+  \item Die Geheimhaltung entfällt oder endet, wenn und soweit
+  \begin{enumerate} [a)] \vspace{-6pt}
+    \item die Information öffentlich bekannt ist,
+    \item die betroffene Person (Unternehmen) in die Offenbarung der Information schriftlich eingewilligt hat,
+    \item die Information dem Empfänger auf anderem Wege als durch die betroffene Person (Unternehmen) bekannt wurde und hierbei durch niemanden eine Geheimhaltungs-pflicht verletzt wurde oder
+    \item die Offenbarung der Information durch ein Gesetz oder aufgrund eines Gesetzes erlaubt ist.
+    Im Übrigen endet die Geheimhaltung am \confidentialDateStop.
+  \end{enumerate}
+  \item Diese Arbeit ist für die Dauer der Geheimhaltung am \thesisInstitute \ an einem sicheren Ort aufzubewahren. Während der Dauer der Geheimhaltung ist jede Zugänglichmachung der Arbeit und die Kenntnisnahme des oder der Beschäftigten der Universität Stuttgart von dieser Geheimhaltung nachweisbar zu dokumentieren.
+\end{enumerate}
+
+{\small Stuttgart, den}
+
+\vspace{48pt}
+
+{\small \examinatorName
+  \hspace{3cm}
+  Institutsstempel \\
+  Institutsleiter
+}
+
+\section*{Liste der Personen mit Zugriff auf die Arbeit}
+
+\newcounter{it}
+\def\emptyrows{}%
+\loop\ifnum\theit<22
+\addtocounter{it}{1}
+\expandafter\def\expandafter\emptyrows\expandafter{%
+  \emptyrows
+  & & \\[5pt] \hline
+}%
+\repeat
+
+\begin{table*} [h!]
+  \renewcommand{\arraystretch} {1.5}
+  \begin{tabular}{|p{45mm}|p{5cm}|p{5cm}|}
+    \hline
+    \textbf{Vorname} & \textbf{Name} & \textbf{Datum} \\
+    \hline
+    \emptyrows
+  \end{tabular}
+\end{table*}
